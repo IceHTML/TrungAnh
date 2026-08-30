@@ -1,24 +1,75 @@
 <!DOCTYPE html>
 <html lang="vi">
-<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Của Tôi</title>
+    <title>Các bài hát của Ngọt Band</title>
+    <!-- Nhúng file CSS từ bên ngoài -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Xin chào! 👋</h1>
-        <p>File <code>index.html</code> của bạn đã hoạt động thành công. Hãy bắt đầu chỉnh sửa nội dung theo ý muốn nhé!</p>
-        <button onclick="showMessage()">Nhấn vào đây</button>
+        <header>
+            <h1>Các bài hát của Ngọt Band</h1>
+            <p>Rê chuột vào hình ảnh để nghe thử một đoạn nhạc</p>
+        </header>
+
+        <!-- Danh sách bài hát từ cũ đến mới -->
+        <div class="song-list">
+
+            <!-- Bài 1: Đánh Thức (2015) -->
+            <div class="song-item">
+                <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
+                    <img src="https://picsum.photos/100/100?random=1" alt="Bìa bài hát">
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
+                </div>
+                <div class="song-info">
+                    <div class="song-title">1. Đánh Thức</div>
+                    <div class="song-meta">Album: Ngọt | Năm phát hành: 2015</div>
+                </div>
+            </div>
+
+            <!-- Bài 2: Cho Tôi Đi Theo (2016) -->
+            <div class="song-item">
+                <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
+                    <img src="https://picsum.photos/100/100?random=2" alt="Bìa bài hát">
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
+                </div>
+                <div class="song-info">
+                    <div class="song-title">2. Cho Tôi Đi Theo</div>
+                    <div class="song-meta">Album: Ngọt | Năm phát hành: 2016</div>
+                </div>
+            </div>
+
+            <!-- Bài 3: Lần Cuối (2019) -->
+            <div class="song-item">
+                <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
+                    <img src="https://picsum.photos/100/100?random=3" alt="Bìa bài hát">
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
+                </div>
+                <div class="song-info">
+                    <div class="song-title">3. Lần Cuối (Đi Đầu Về Đâu)</div>
+                    <div class="song-meta">Album: 3 | Năm phát hành: 2019</div>
+                </div>
+            </div>
+
+            <!-- Bài 4: Em Dạo Này (2020) -->
+            <div class="song-item">
+                <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
+                    <img src="https://picsum.photos/100/100?random=4" alt="Bìa bài hát">
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
+                </div>
+                <div class="song-info">
+                    <div class="song-title">4. Em Dạo Này</div>
+                    <div class="song-meta">Single | Năm phát hành: 2020</div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <script>
-        function showMessage() {
-            alert('Cảm ơn bạn đã ghé thăm trang web!');
-        }
-    </script>
+    <!-- Nhúng file JavaScript từ bên ngoài (đặt ở cuối body) -->
+    <script src="script.js"></script>
 </body>
 </html>
-
