@@ -1,52 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 20px;
+}
 
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 12px;
-        }
+header h1 {
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
 
-        p {
-            color: #666;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
+header p {
+    color: #94a3b8;
+}
 
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        button:hover {
-            background-color: #2980b9;
-        }
+.song-item {
+    display: flex;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 12px 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.album-cover {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.album-cover:hover img {
+    transform: scale(1.1);
+}
+
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #f43f5e;
+}
+
+.song-meta {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
