@@ -12,7 +12,8 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    width: 90%;                /* Giúp khung linh hoạt theo màn hình */
+    max-width: 1000px;         /* Nới rộng khung tối đa từ 800px lên 1000px */
     margin: 0 auto;
 }
 
@@ -27,6 +28,7 @@ header h1 {
     white-space: nowrap;
     overflow: hidden;
     font-size: 1.5rem;
+    test-align: centre;
 }
 
 header p {
