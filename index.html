@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Các bài hát của Ngọt Band</title>
-    <!-- Nhúng file CSS từ bên ngoài -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,29 +11,32 @@
     <div class="container">
         <header>
             <h1>Các bài hát của Ngọt Band</h1>
-            <p>Rê chuột vào hình ảnh để nghe thử một đoạn nhạc</p>
+            <p>Rê chuột vào hình ảnh để nghe thử một đoạn nhạc | Bấm vào hình ảnh để xem chi tiết</p>
         </header>
 
-        <!-- Danh sách bài hát từ cũ đến mới -->
         <div class="song-list">
 
-            <!-- Bài 1: Đánh Thức (2015) -->
+            <!-- Bài 1: Chuông Báo Thức (Chuyển sang bai1.html) -->
             <div class="song-item">
                 <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
-                    <img src="https://picsum.photos/100/100?random=1" alt="Bìa bài hát">
-                    <audio src="https://www.image2url.com/r2/default/audio/1788101947385-010595b0-a33e-41f1-9466-791a4a5b3592.mp3"></audio>
+                    <a href="bai1.html">
+                        <img src="https://picsum.photos/100/100?random=1" alt="Bìa Chuông Báo Thức">
+                    </a>
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
                 </div>
                 <div class="song-info">
-                    <div class="song-title">1. Đánh Thức</div>
-                    <div class="song-meta">Album: Ngọt | Năm phát hành: 2015</div>
+                    <div class="song-title">1. Chuông Báo Thức</div>
+                    <div class="song-meta">Album: Ngọt | Năm phát hành: 2016</div>
                 </div>
             </div>
 
-            <!-- Bài 2: Cho Tôi Đi Theo (2016) -->
+            <!-- Bài 2: Cho Tôi Đi Theo (Chuyển sang bai2.html) -->
             <div class="song-item">
                 <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
-                    <img src="https://picsum.photos/100/100?random=2" alt="Bìa bài hát">
-                    <audio src="https://www.image2url.com/r2/default/audio/1788101947385-010595b0-a33e-41f1-9466-791a4a5b3592.mp3"></audio>
+                    <a href="bai2.html">
+                        <img src="https://picsum.photos/100/100?random=2" alt="Bìa Cho Tôi Đi Theo">
+                    </a>
+                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
                 </div>
                 <div class="song-info">
                     <div class="song-title">2. Cho Tôi Đi Theo</div>
@@ -42,34 +44,23 @@
                 </div>
             </div>
 
-            <!-- Bài 3: Lần Cuối (2019) -->
+            <!-- Bài 3: Lần Cuối (Chuyển sang bai3.html) -->
             <div class="song-item">
                 <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
-                    <img src="https://picsum.photos/100/100?random=3" alt="Bìa bài hát">
+                    <a href="bai3.html">
+                        <img src="https://picsum.photos/100/100?random=3" alt="Bìa Lần Cuối">
+                    </a>
                     <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
                 </div>
                 <div class="song-info">
-                    <div class="song-title">3. Lần Cuối (Đi Đầu Về Đâu)</div>
+                    <div class="song-title">3. Lần Cuối (Đi Đâu Về Đâu)</div>
                     <div class="song-meta">Album: 3 | Năm phát hành: 2019</div>
-                </div>
-            </div>
-
-            <!-- Bài 4: Em Dạo Này (2020) -->
-            <div class="song-item">
-                <div class="album-cover" onmouseenter="playPreview(this)" onmouseleave="stopPreview(this)">
-                    <img src="https://picsum.photos/100/100?random=4" alt="Bìa bài hát">
-                    <audio src="https://www.w3schools.com/html/horse.mp3"></audio>
-                </div>
-                <div class="song-info">
-                    <div class="song-title">4. Em Dạo Này</div>
-                    <div class="song-meta">Single | Năm phát hành: 2020</div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- Nhúng file JavaScript từ bên ngoài (đặt ở cuối body) -->
     <script src="script.js"></script>
 </body>
 </html>
