@@ -33,37 +33,41 @@ header p {
     color: #94a3b8;
 }
 
+/* Danh sách bài hát xếp dọc, căn giữa */
 .song-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
+    align-items: center; /* Căn giữa các ảnh khi chưa di chuột vào */
 }
 
-/* Khung chứa của từng mục */
+/* Khung chứa ban đầu vừa khít 90px của ảnh */
 .song-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 12px;
+    gap: 16px;
+    padding: 0; /* Bỏ padding ban đầu để ảnh không bị cắt */
     border-radius: 12px;
     position: relative;
-    overflow: hidden; /* Ẩn các phần thừa khi chưa hover */
-    width: fit-content; /* Ban đầu thu nhỏ vừa đúng ảnh */
-    max-width: 90px;    /* Chỉ hiện ảnh bìa (90px) */
+    overflow: hidden;
+    width: 90px; /* Vừa đúng độ rộng của ảnh */
+    height: 90px;
     background-color: transparent;
-    transition: max-width 0.5s ease-in-out, background-color 0.4s ease, box-shadow 0.4s ease;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.4s ease, 
+                box-shadow 0.4s ease,
+                padding 0.4s ease;
 }
 
-/* HIỆU ỨNG KHI DI CHUỘT VÀO: Trượt mở rộng khung từ trái sang phải */
+/* HIỆU ỨNG DI CHUỘT: Trượt mở rộng khung ra bên phải */
 .song-item:hover {
-    max-width: 1000px; /* Mở rộng tối đa để hiện full thông tin */
-    width: 100%;
-    background-color: rgba(30, 41, 59, 0.95); /* Hiện nền màu tối */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    padding-right: 24px;
+    width: 100%; /* Mở rộng toàn bộ chiều rộng container */
+    padding: 12px 24px 12px 12px; /* Thêm padding khi trượt ra */
+    background-color: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* 1. Phần Ảnh Bìa */
+/* 1. Phần Ảnh bìa */
 .album-cover {
     width: 90px;
     height: 90px;
@@ -71,33 +75,27 @@ header p {
     cursor: pointer;
     border-radius: 10px;
     overflow: hidden;
-    z-index: 2;
-    transition: transform 0.3s ease;
 }
 
 .album-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-/* Ảnh phóng to nhẹ khi di chuột */
-.song-item:hover .album-cover {
-    transform: scale(1.05);
-}
-
-/* 2. Phần Thông Tin Chữ (Tiêu đề + Mô tả) */
+/* 2. Phần Chữ thông tin */
 .song-info {
-    white-space: nowrap; /* Bắt buộc chữ không xuống dòng khi trượt ra */
-    opacity: 0;          /* Ban đầu tệp chữ ẩn đi */
-    transform: translateX(-20px); /* Đẩy chữ nhẹ sang trái */
-    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; /* Xuất hiện mượt hơn */
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
 }
 
-/* Hiện chữ khi hover */
+/* Hiện chữ mượt mà từ trái qua phải */
 .song-item:hover .song-info {
     opacity: 1;
-    transform: translateX(0); /* Trượt chữ về vị trí chuẩn từ trái sang phải */
+    transform: translateX(0);
 }
 
 .song-title {
