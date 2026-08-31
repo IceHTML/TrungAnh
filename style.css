@@ -26,7 +26,7 @@ header h1 {
     color: #38bdf8;
     margin-bottom: 8px;
     white-space: nowrap;  /* Giữ tiêu đề trên 1 dòng */
-    font-size: 2.5rem;    /* Tăng cỡ chữ to lên (mặc định khoảng 1.5rem - 2rem) */
+    font-size: 5rem;    /* Tăng cỡ chữ to lên (mặc định khoảng 1.5rem - 2rem) */
 }
 
 header p {
