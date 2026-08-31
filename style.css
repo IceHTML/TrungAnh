@@ -33,12 +33,10 @@ header p {
     color: #94a3b8;
 }
 
-/* Danh sách bài hát */
 .song-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    align-items: flex-start; /* Giúp các ô bám lề trái chuẩn xác */
+    gap: 15px;
 }
 
 /* Khung của mỗi album */
