@@ -41,69 +41,80 @@ header p {
     align-items: flex-start; /* Giúp các ô bám lề trái chuẩn xác */
 }
 
-/* Khung chứa ban đầu vừa đúng kích thước ảnh */
+/* Khung của mỗi album */
 .song-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 10px; /* Thêm padding cố định để ảnh không bị che viền */
-    border-radius: 14px;
-    position: relative;
-    overflow: hidden;
-    width: 110px; /* 90px ảnh + 20px padding (mỗi bên 10px) */
-    box-sizing: border-box; /* Bắt buộc tính cả padding vào kích thước khung */
-    background-color: transparent;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                background-color 0.4s ease, 
-                box-shadow 0.4s ease;
+    background-color: rgba(30, 41, 59, 0.9);
+    padding: 16px 24px;
+    border-radius: 12px;
+    gap: 24px;
+    transition: all 0.3s ease; /* Tạo hiệu ứng chuyển động mượt cho cả dòng */
 }
 
-/* HIỆU ỨNG DI CHUỘT: Trượt mở rộng sang phải */
+/* Đổi màu nền nhẹ khi di chuột vào cả hàng bài hát */
 .song-item:hover {
-    width: 100%; /* Mở rộng hết chiều ngang */
-    background-color: rgba(30, 41, 59, 0.95);
+    background-color: rgba(51, 65, 85, 0.95);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    padding-right: 24px;
 }
 
-/* 1. Kích thước ảnh chuẩn */
+/* Khung chứa hình ảnh */
 .album-cover {
+    position: relative;
     width: 90px;
     height: 90px;
     flex-shrink: 0;
     cursor: pointer;
-    border-radius: 10px;
     overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .album-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.4s ease;
 }
 
-/* 2. Thông tin chữ trượt mở */
+/* HIỆU ỨNG KHI DI CHUỘT VÀO ẢNH */
+/* 1. Ảnh to lên rõ rệt */
+.album-cover:hover {
+    transform: scale(1.15); /* Phóng to cả khung ảnh lên 15% */
+    box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4); /* Thêm viền sáng xung quanh ảnh */
+    z-index: 2;
+}
+
+.album-cover:hover img {
+    transform: scale(1.1); /* Ảnh bên trong phóng to thêm nhẹ */
+}
+
+/* Khung thông tin bên cạnh */
 .song-info {
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(-15px);
-    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+    flex-grow: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* 2. Phần thông tin bên cạnh tự động nhích nhẹ và nổi bật lên khi rê chuột vào ảnh */
+.album-cover:hover + .song-info,
 .song-item:hover .song-info {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateX(8px); /* Dịch chuyển nhẹ sang phải 8px */
 }
 
 .song-title {
     font-size: 1.2rem;
     font-weight: bold;
     color: #f43f5e;
+    transition: color 0.3s ease;
+}
+
+/* Đổi màu tên bài hát khi hover */
+.song-item:hover .song-title {
+    color: #38bdf8; /* Đổi sang màu xanh khi di chuột vào */
 }
 
 .song-meta {
     font-size: 0.9rem;
     color: #94a3b8;
-    margin-top: 4px;
+    margin-top: 6px;
 }
