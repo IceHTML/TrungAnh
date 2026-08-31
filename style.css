@@ -24,6 +24,7 @@ header {
 header h1 {
     color: #38bdf8;
     margin-bottom: 8px;
+    white-space: nowrap;
 }
 
 header p {
