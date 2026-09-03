@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Đăng Nhập</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .input-group { margin-bottom: 15px; }
+        .input-group input { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Đăng Nhập</h2>
+    <div class="input-group">
+        <input type="text" id="username" placeholder="Tên đăng nhập (admin)">
+    </div>
+    <div class="input-group">
+        <input type="password" id="password" placeholder="Mật khẩu (password123)">
+    </div>
+    <button onclick="handleLogin()">Đăng nhập</button>
+    <p id="message" style="color: red; text-align: center;"></p>
+</div>
+
+<script>
+async function handleLogin() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const msgElement = document.getElementById('message');
+
+    try {
+        // Gửi dữ liệu đăng nhập lên API Backend
+        const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: user, password: pass })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            msgElement.style.color = "green";
+            msgElement.innerText = data.message;
+            
+            // Lưu mã token vào LocalStorage của trình duyệt để duy trì phiên đăng nhập
+            localStorage.setItem('userToken', data.token);
+            alert("Đăng nhập thành công! Token đã được lưu.");
+        } else {
+            msgElement.style.color = "red";
+            msgElement.innerText = data.message;
+        }
+    } catch (error) {
+        msgElement.innerText = "Không thể kết nối đến máy chủ!";
+    }
+}
+</script>
+
+</body>
+</html>
