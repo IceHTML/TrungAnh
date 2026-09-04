@@ -141,3 +141,54 @@ header p {
 .container {
     position: relative;
 }
+/* Khung chứa các nút ở góc trên bên trái */
+.auth-group {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Kiểu chung cho cả 2 nút */
+.auth-btn {
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+/* Kiểu cho nút Đăng ký (Đặt trước - Làm nổi bật hơn) */
+.register-btn {
+    background-color: #53d8e7;
+    color: #0c172b;
+    border: 2px solid #53d8e7;
+}
+
+.register-btn:hover {
+    background-color: #ff9c73;
+    border-color: #ff9c73;
+    transform: translateY(-2px);
+}
+
+/* Kiểu cho nút Đăng nhập (Đặt sau - Nền trong suốt) */
+.login-btn {
+    background-color: transparent;
+    color: #53d8e7;
+    border: 2px solid #53d8e7;
+}
+
+.login-btn:hover {
+    background-color: #53d8e7;
+    color: #0c172b;
+    transform: translateY(-2px);
+}
+
+/* Cấu hình container */
+.container {
+    position: relative;
+}
