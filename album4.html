@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngọt - Tuyển Tập Suýt</title>
+    <style>
+        :root {
+            --bg-color: #121214;
+            --card-bg: #1e1e24;
+            --card-hover: #2a2a32;
+            --accent-color: #ff6b6b;
+            --text-main: #f0f0f5;
+            --text-sub: #a0a0b0;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(30, 30, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .song-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .song-card:hover {
+            background-color: var(--card-hover);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .song-number {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            min-width: 30px;
+        }
+
+        .song-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            flex-grow: 1;
+        }
+
+        .play-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .song-card:hover .play-icon {
+            background: var(--accent-color);
+        }
+
+        .play-icon svg {
+            fill: var(--text-main);
+            width: 14px;
+            height: 14px;
+            margin-left: 2px;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>NGỌT</h1>
+            <p>Danh sách bài hát trích từ Suýt 1 & 2</p>
+        </header>
+
+        <div class="song-grid" id="songList"></div>
+
+        <footer>
+            <p>© Ngọt Band - Danh sách 8 bài hát</p>
+        </footer>
+    </div>
+
+    <script>
+        const songs = [
+            { id: "01", title: "Chuyện Dở Dang" },
+            { id: "02", title: "Mơ Làm Ma" },
+            { id: "03", title: "Hay Là" },
+            { id: "04", title: "Thắp Hương Hóa Vàng" },
+            { id: "06", title: "Quen Lắm" },
+            { id: "07", title: "Chiều Hồ Tây" },
+            { id: "08", title: "Leo Đèo" },
+            { id: "09", title: "Chuyện Thường" }
+        ];
+
+        const songListContainer = document.getElementById('songList');
+
+        songs.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            card.innerHTML = `
+                <div class="song-number">${song.id}</div>
+                <div class="song-title">${song.title}</div>
+                <div class="play-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+            `;
+            
+            card.addEventListener('click', () => {
+                alert(`Đang phát: ${song.id} - ${song.title}`);
+            });
+
+            songListContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>
