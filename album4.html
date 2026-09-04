@@ -51,12 +51,6 @@
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
             background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #ff3333;
-            font-size: 24px;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -218,14 +212,36 @@
             background-color: rgba(255, 255, 255, 0.08);
         }
 
+        /* CẤU TRÚC VÀ HIỆU ỨNG CHUYỂN ĐỔI SỐ -> NÚT PLAY */
+        .song-index-container {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
         .song-index {
             color: var(--text-secondary);
             font-size: 16px;
             font-weight: 500;
+            display: inline-block;
         }
 
+        .row-play-icon {
+            display: none;
+            width: 16px;
+            height: 16px;
+            fill: var(--text-primary);
+        }
+
+        /* khi hover vào hàng: ẩn số, hiện nút play */
         .song-row:hover .song-index {
-            color: var(--text-primary);
+            display: none;
+        }
+
+        .song-row:hover .row-play-icon {
+            display: block;
         }
 
         .song-info {
@@ -258,12 +274,14 @@
         <!-- HEADER ALBUM -->
         <div class="album-header">
             <div class="album-cover">
-                <!-- Mày có thể thay link ảnh bìa Suýt ở đây -->
-                <img src="Suyt.png" alt="Suýt Cover" onerror="this.onerror=null; this.parentElement.innerText='Suýt 1&2';">
+                <img src="Suyt.png" alt="Suýt 1 & 2 Cover">
             </div>
             <div class="album-info">
+                <span class="album-type">EP</span>
                 <h1 class="album-title">Suýt 1 & 2</h1>
                 <div class="album-meta">
+                    <strong>Ngọt</strong>
+                    <span class="dot-separator">•</span>
                     <span>2024</span>
                     <span class="dot-separator">•</span>
                     <span class="album-subtext">8 bài hát</span>
@@ -316,11 +334,14 @@
 
         const songListContainer = document.getElementById('songList');
 
-        songs.forEach((song, index) => {
+        songs.forEach((song) => {
             const row = document.createElement('div');
             row.className = 'song-row';
             row.innerHTML = `
-                <div class="song-index">${song.id}</div>
+                <div class="song-index-container">
+                    <span class="song-index">${song.id}</span>
+                    <svg class="row-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
                 <div class="song-info">
                     <div class="song-title">${song.title}</div>
                     <div class="song-artist">Ngọt</div>
