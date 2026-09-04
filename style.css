@@ -116,3 +116,28 @@ header p {
     color: #94a3b8;
     margin-top: 6px;
 }
+/* Nút Đăng nhập ở góc trên bên trái */
+.login-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    background-color: #53d8e7;
+    color: #0c172b;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.login-btn:hover {
+    background-color: #ff9c73;
+    transform: translateY(-2px);
+}
+
+/* Đảm bảo container định vị chính xác */
+.container {
+    position: relative;
+}
